@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group1" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_hotel"
+            android:icon="@drawable/ic_menu_hotel"
+            android:title="@string/hotels" />
+        <item
+            android:id="@+id/nav_restaurant"
+            android:icon="@drawable/ic_menu_restaurant"
+            android:title="@string/restaurants" />
+        <item
+            android:id="@+id/nav_coffee"
+            android:icon="@drawable/ic_menu_coffee"
+            android:title="@string/coffess" />
+    </group>
+
+    <group android:id="@+id/group2" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_aeroport"
+            android:icon="@drawable/ic_menu_aeroport"
+            android:title="@string/aeroports" />
+    </group>
+
+    <group android:id="@+id/group3" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_hospital"
+            android:icon="@drawable/ic_menu_hospital"
+            android:title="@string/hospitals" />
+        <item
+            android:id="@+id/nav_shopping"
+            android:icon="@drawable/ic_menu_mall"
+            android:title="@string/shopping" />
+        <item
+            android:id="@+id/nav_bar"
+            android:icon="@drawable/ic_menu_bar"
+            android:title="@string/bars" />
+
+        <item
+        android:id="@+id/nav_monument"
+        android:icon="@drawable/ic_menu_monument"
+        android:title="@string/monuments" />
+
+        <item
+            android:id="@+id/nav_beach"
+            android:icon="@drawable/ic_menu_beach"
+            android:title="@string/beachs" />
+        <item
+            android:id="@+id/nav_dance_club"
+            android:icon="@drawable/ic_menu_dance_club"
+            android:title="@string/dance_clubs" />
+
+        <item
+            android:id="@+id/nav_casino"
+            android:icon="@drawable/ic_menu_casino"
+            android:title="@string/casinos" />
+    </group>
+
+</menu>

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Los_angles_guide</string>
+    <string name="hotels">Hotels</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="coffess">Coffees</string>
+    <string name="bars">Bars</string>
+    <string name="dance_clubs">Dance clubs</string>
+    <string name="shopping">Shopping</string>
+    <string name="hospitals">Hospitals</string>
+    <string name="monuments">Monuments</string>
+    <string name="beachs">Beachs</string>
+    <string name="aeroports">Aeroports</string>
+    <string name="casinos">Casinos</string>
 </resources>
