@@ -144,12 +144,37 @@ public class PopularFragment extends Fragment {
         @Override
         public void onBindViewHolder(PopularViewHolder holder, int position) {
 
+            final int index = position;
             //holder.imageView.setImageResource(listImageView.get(position));
             Glide.with(getActivity().getApplicationContext()).load(listImageView.get(position))
                     .thumbnail(0.5f)
                     .crossFade()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.imageView);
+
+            holder.cardView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    if (!getActivity().isFinishing()) {
+                        DetailsFragment  detailsFragment = new DetailsFragment();
+                        Bundle args = new Bundle();
+                        args.putInt("imageId", listImageView.get(index));
+                        args.putString("title", "Hotel Marrakech");
+                        detailsFragment.setArguments(args);
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .setCustomAnimations(
+                                        R.anim.card_flip_right_in,
+                                        R.anim.card_flip_right_out,
+                                        R.anim.card_flip_left_in,
+                                        R.anim.card_flip_left_out)
+                                .replace(R.id.container, detailsFragment)
+                                .addToBackStack(null)
+                                .commit();
+                    }
+                }
+            });
 
         }
 
@@ -171,6 +196,8 @@ public class PopularFragment extends Fragment {
                 super(view);
                 cardView = (CardView) view.findViewById(R.id.cardViewPopular);
                 imageView = (ImageView) view.findViewById(R.id.imageViewPopular);
+
+
             }
         }
 

@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.achraf.sport.cote.los_angles_guide.Fragments.DetailsFragment;
 import com.achraf.sport.cote.los_angles_guide.Fragments.HotelsFragment;
 import com.achraf.sport.cote.los_angles_guide.Fragments.PopularFragment;
 import com.achraf.sport.cote.los_angles_guide.Fragments.RestaurantsFragment;
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         PopularFragment.OnFragmentInteractionListener,
         HotelsFragment.OnFragmentInteractionListener,
-        RestaurantsFragment.OnFragmentInteractionListener
+        RestaurantsFragment.OnFragmentInteractionListener,
+        DetailsFragment.OnFragmentInteractionListener
 {
 
     Toolbar toolbar;
