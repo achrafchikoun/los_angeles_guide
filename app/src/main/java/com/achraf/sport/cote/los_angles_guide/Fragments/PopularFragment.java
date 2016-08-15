@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.achraf.sport.cote.los_angles_guide.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +79,9 @@ public class PopularFragment extends Fragment {
         List<Integer> list = new ArrayList<Integer>();
         list.add(R.drawable.los_angeles_1);
         list.add(R.drawable.los_angeles_2);
+        list.add(R.drawable.los_angeles_3);
+        list.add(R.drawable.los_angeles_4);
+        list.add(R.drawable.los_angeles_5);
         PopularAdapter pva = new PopularAdapter(list);
         recyclerView.setAdapter(pva);
         return view;
@@ -139,7 +144,12 @@ public class PopularFragment extends Fragment {
         @Override
         public void onBindViewHolder(PopularViewHolder holder, int position) {
 
-            holder.imageView.setImageResource(listImageView.get(position));
+            //holder.imageView.setImageResource(listImageView.get(position));
+            Glide.with(getActivity().getApplicationContext()).load(listImageView.get(position))
+                    .thumbnail(0.5f)
+                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.imageView);
 
         }
 
