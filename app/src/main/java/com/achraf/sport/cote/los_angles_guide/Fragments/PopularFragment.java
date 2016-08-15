@@ -1,14 +1,24 @@
 package com.achraf.sport.cote.los_angles_guide.Fragments;
 
 import android.content.Context;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.achraf.sport.cote.los_angles_guide.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,19 +39,13 @@ public class PopularFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    RecyclerView recyclerView;
 
     public PopularFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PopularFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static PopularFragment newInstance(String param1, String param2) {
         PopularFragment fragment = new PopularFragment();
@@ -65,7 +69,17 @@ public class PopularFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_popular, container, false);
+        View view = inflater.inflate(R.layout.fragment_popular, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.rvFragmentPopular);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(R.drawable.los_angeles_1);
+        list.add(R.drawable.los_angeles_2);
+        PopularAdapter pva = new PopularAdapter(list);
+        recyclerView.setAdapter(pva);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,5 +119,50 @@ public class PopularFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.PopularViewHolder> {
+
+        List<Integer> listImageView;
+
+        PopularAdapter(List<Integer> listImageView) {
+           this.listImageView = listImageView;
+        }
+
+        @Override
+        public PopularViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_items_popular, parent, false);
+            PopularViewHolder pvh = new PopularViewHolder(v);
+            return pvh;
+        }
+
+        @Override
+        public void onBindViewHolder(PopularViewHolder holder, int position) {
+
+            holder.imageView.setImageResource(listImageView.get(position));
+
+        }
+
+        @Override
+        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+            super.onAttachedToRecyclerView(recyclerView);
+        }
+
+        @Override
+        public int getItemCount() {
+            return  (listImageView.size());
+        }
+
+        public class PopularViewHolder extends RecyclerView.ViewHolder {
+            ImageView imageView;
+            CardView cardView;
+
+            PopularViewHolder(View view) {
+                super(view);
+                cardView = (CardView) view.findViewById(R.id.cardViewPopular);
+                imageView = (ImageView) view.findViewById(R.id.imageViewPopular);
+            }
+        }
+
     }
 }
